@@ -1,19 +1,19 @@
-/*
-  TODO: delete this comment
+function updateOutput() {
+  const playerType = (document.querySelector('#form-input #playerType input#playerTypeInline').checked ? 'inline' : 'block');
+  const phrase = document.querySelector('#form-input #input-phrase').value;
+  const audioSource = document.querySelector('#form-input #input-audioSource').value;
 
-  This file is where you bootstrap your JS code
-  For example import stuff here:
+  const output = `<span class="g-audio ${(playerType === 'block' ? 'g-audio--block' : '')}">${phrase}<audio controls><source src="${audioSource}" type="audio/mpeg"></audio></span>`;
 
-  import {select} from 'd3-selection';
-  import myComponent from './components/my-component';
+  document.querySelector('#form-output textarea').value = output;
+}
 
-  Split logical parts of you project into components e.g.
+const inputFields = document.querySelectorAll('#form-input input[type="text"]');
+Array.from(inputFields).forEach((element) => {
+  element.addEventListener('keyup', updateOutput);
+});
 
-  /client
-    - /components
-        - /component-name
-            - styles.scss
-            - index.js
-            - template.html
-
-*/
+const radioButtons = document.querySelectorAll('#form-input input[type="radio"]');
+Array.from(radioButtons).forEach((element) => {
+  element.addEventListener('click', updateOutput);
+});

@@ -4,6 +4,45 @@
 {% block article_body %}
 
 {% markdown %}
+This tool generates [g-audio](https://github.com/Financial-Times/g-audio) markup that you can use to build a story page.
 
+<h2>Step 1: Fill out the following fields:</h2>
 {% endmarkdown %}
+
+<div id="form-input">
+  <div class="o-forms">
+    <label class="o-forms__label">What kind of audio player do you want?</label>
+    <div id="playerType">
+      <input type="radio" name="playerType" value="1" class="o-forms__radio" id="playerTypeInline" checked></input>
+      <label for="playerTypeInline" class="o-forms__label">Inline audio player</label>
+      <input type="radio" name="playerType" value="2" class="o-forms__radio" id="playerTypeBlock"></input>
+      <label for="playerTypeBlock" class="o-forms__label">Block audio player</label>
+    </div>
+  </div>
+  <div class="o-forms">
+  	<label for="input-phrase" class="o-forms__label">Phrase to put in the player</label>
+  	<small class="o-forms__additional-info"></small>
+  	<input type="text" id="input-phrase" placeholder="e.g. Marianne Faithfull's delicate 1965 rendition" class="o-forms__text" required></input>
+  </div>
+
+  <div class="o-forms">
+  	<label for="input-audioSource" class="o-forms__label">URL to mp3 file</label>
+  	<small class="o-forms__additional-info"></small>
+  	<input type="text" id="input-audioSource" placeholder="e.g. https://ig.ft.com/audio/myaudiofile.mp3" class="o-forms__text" required></input>
+  </div>
+</div>
+
+{% markdown %}
+<h2>Step 2: Copy the following into your text in place of the phrase you put in step 1.</h2>
+{% endmarkdown %}
+
+<div id="form-output">
+  <div class="o-forms o-forms--wide">
+  	<label for="o-forms__textarea" class="o-forms__label"></label>
+  	<small class="o-forms__additional-info"></small>
+  	<textarea rows="2" placeholder="Fill out step 1 to generate your g-audio markup" id="o-forms__textarea" class="o-forms__textarea"></textarea>
+  </div>
+</div>
+
+
 {% endblock %}
