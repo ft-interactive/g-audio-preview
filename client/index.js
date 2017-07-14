@@ -15,7 +15,7 @@ function updateMarkup() {
 
 function previewPlayer() {
   const output = getMarkup();
-  document.querySelector('#form-output #form-output-preview').innerHTML = output;
+  document.querySelector('#form-output #form-output-preview').innerHTML = `<p>${output}</p>`;
   Origami['g-audio'].init();
 }
 
